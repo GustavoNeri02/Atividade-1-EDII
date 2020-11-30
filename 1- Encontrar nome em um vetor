@@ -1,0 +1,28 @@
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args){
+        String[] listaNome = new String[5];
+        int menu = 1;
+        for (int i = 0; i<=4; i++){
+            listaNome[i] = JOptionPane.showInputDialog("Digite o "+(i+1)+"° nome");
+        }
+
+        while(menu != 0){
+            menu = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para procurar nome.\nDigite 0 para sair."));
+            if (menu == 1){
+                String nome = JOptionPane.showInputDialog("Digite o nome a ser procurado: ");
+                for (int i = 0; i<=4; i++){
+                    if (nome.equals(listaNome[i])){
+                        JOptionPane.showMessageDialog(null, "Nome encontrado: "+ listaNome[i].toUpperCase()+
+                                "\nPosicao: "+i+" no vetor");
+                        nome = "";
+                    }
+                }
+                if (!nome.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"O nome " + nome.toUpperCase() + " nao foi encontrado.");
+                }
+            }
+        }
+    }
+}
