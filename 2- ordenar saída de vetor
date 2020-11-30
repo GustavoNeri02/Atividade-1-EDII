@@ -1,0 +1,37 @@
+import javax.swing.*;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args){
+        int[] vetor = new int[15];
+        String sNumeros = "",sCrescente = "", sDecrescente = "", sPares = "", sImpares = "";
+        int iSomaPares = 0;
+        float iProdutoImpares = 1;
+        int cont = vetor.length - 1;
+        
+        for (int i = 0; i < vetor.length; i++){
+            vetor[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite o "+(i+1) + "º numero:"));
+            sNumeros += vetor[i] + " ";
+        }
+
+        Arrays.sort(vetor);
+
+        for (int value : vetor) {
+            sCrescente += value + " ";
+            sDecrescente += vetor[cont] + " ";
+            cont--;
+            if (value % 2 == 0) {
+                sPares += value + " ";
+                iSomaPares += value;
+            } else {
+                sImpares += value + " ";
+                iProdutoImpares *= value;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Numeros digitados: " + sNumeros);
+        JOptionPane.showMessageDialog(null, "Ordem crescente: " + sCrescente);
+        JOptionPane.showMessageDialog(null, "Ordem decrescente: " + sDecrescente);
+        JOptionPane.showMessageDialog(null, "Numeros pares: " + sPares + "\nSoma dos numeros = " + iSomaPares);
+        JOptionPane.showMessageDialog(null, "Numeros impares: " + sImpares + "\nProduto dos numeros = " + iProdutoImpares);
+    }
+}
