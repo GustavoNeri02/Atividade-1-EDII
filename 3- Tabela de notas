@@ -1,0 +1,24 @@
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args){
+        String[] nome = new String[5];
+        float[][] notas = new float[5][2];
+        String saida = "";
+        float media;
+        String situacao;
+        for (int i = 0; i < nome.length; i++){
+            nome[i] = JOptionPane.showInputDialog("Digite o nome do "+(i+1)+"º Aluno");
+            notas[i][0] = Float.parseFloat(JOptionPane.showInputDialog("Digite a nota da prova 1 de " + nome[i]));
+            notas[i][1] = Float.parseFloat(JOptionPane.showInputDialog("Digite a nota da prova 2 de " + nome[i]));
+            media = (notas[i][0] + notas[i][1])/2;
+            if (media >= 6){
+                situacao = "Aprovado!";
+            }else{
+                situacao = "Reprovado!";
+            }
+            saida += nome[i] +"       " + notas[i][0] +"           "+notas[i][1]+"            "+ media + "         " + situacao +"\n";
+        }
+        JOptionPane.showMessageDialog(null,"Nome:      Prova 1      Prova 2      Media       Situacao\n"+saida);
+    }
+}
